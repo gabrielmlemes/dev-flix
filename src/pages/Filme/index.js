@@ -11,37 +11,6 @@ const Filme = () => {
   const [filme, setFilme] = useState({});
   const [loading, setLoading] = useState(true);
 
-  /*
-    O que o useEffect está fazendo?
-
-    *** OBS: O useEffect sempre tem que ser a primeira função a ser chamada no componente!
-
-    - O useEffect é chamado assim que página é renderizada;
-    - Ele faz um requisição GET à API passando o id do filme;
-    - Depois, com o responseultado dessa requisição ele passa o responseultado
-    para o setFilme. Ou seja, a partir desse momento, "filme" (que foi declarado 
-    no useState como um objeto vazio) passa a receber TODO O responseULTADO DA 
-    REQUISIÇÃO, e com isso podemos fazer inúmeras coisas com "filme";
-    - Porém, devemos passar um catch, em caso do filme não ter sido encontrado. Usando
-    o useNavigate podemos redirecionar o usuário para alguma tela, e nesse caso, para
-    a tela de Home (por isso foi passado o paràmetro "/"). E foi passado mais um 
-    parâmetro, o "replace: true", para dar um replace na Url do usuário. E foi dado
-    um return para finalizar a execução do código.
-
-    - Foi dado um setLoading(false) para encerrar a tela que
-    fica carregando enquanto a requisição não é retornada.
-    - Após isso, deve ser chamada a função!
-
-    - Abaixo, há uma verificação de loading para caso esteja
-    carregando a tela enquanto não retorna a requisição da API.
-    - Para não ficar em branco, foi criado apenas uma div para
-    mostrar uma frase de "Carregando detalhes..."
-
-    - Após essas definições de informações acima, é dado o return
-    para renderizar as informações na tela, utilizando "filme", que
-    possui todas as informações da requisição!
-*/
-
   useEffect(() => {
     async function loadFilme() {
       await api
